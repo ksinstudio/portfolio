@@ -22,8 +22,8 @@ export const services = [
     desc: "Layouts, key art, and marketing visuals with intent behind every choice.",
   },
   {
-    title: "Environment Design",
-    desc: "Worlds and scenes with atmosphere — concept through final composition.",
+    title: "Illustration",
+    desc: "Editorial, character, and key art — digital painting and stylized visuals.",
   },
 ];
 
@@ -32,14 +32,28 @@ export const clients = [
   "Pancake House",
   "City of Adelanto",
   "Cyber Labs",
-  "Private Clients",
+  "Blac Flag",
+  "Insomniac",
+  "Steeno Design",
+  "Mo+Re Design Solutions",
+  "Design Development",
+  "Gummy Gang",
+  "Stiiizy",
+  "Cookies",
 ];
 
 export const tools = [
   "Blender",
+  "Plasticity",
+  "3ds Max",
+  "Maya",
+  "SketchUp",
+  "Revit",
   "Unreal Engine",
   "Twinmotion",
+  "ComfyUI",
   "Photoshop",
   "Illustrator",
-  "Mixamo",
+  "Premiere",
+  "After Effects",
 ];

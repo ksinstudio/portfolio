@@ -3,6 +3,7 @@ import { Anton, Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { Sidebar } from "@/components/Sidebar";
+import { Parallax } from "@/components/Parallax";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen">
         <Sidebar />
+        <Parallax />
         <div className="lg:pl-[240px]">{children}</div>
       </body>
     </html>

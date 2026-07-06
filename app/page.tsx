@@ -22,6 +22,7 @@ export default function HomePage() {
         <p className="label">{site.role}</p>
         <Link
           href="/contact"
+          data-magnetic="0.35"
           className="head group flex items-center gap-3 rounded-full border border-[var(--color-line)] px-5 py-2 text-xs transition-colors hover:bg-[var(--color-elevated)]"
         >
           Let&apos;s Work
@@ -31,14 +32,16 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="reveal relative -mx-6 overflow-hidden sm:-mx-10 lg:-mx-14">
-        {/* Background image */}
-        <div className="absolute inset-0 -z-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={site.heroImage}
-            alt=""
-            className="ken-burns h-full w-full object-cover"
-          />
+        {/* Background image (parallax on scroll) */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div data-parallax="0.15" className="absolute -inset-y-[16%] inset-x-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={site.heroImage}
+              alt=""
+              className="ken-burns h-full w-full object-cover"
+            />
+          </div>
           {/* Scrims for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/80 to-[var(--color-bg)]/25" />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/50" />
@@ -165,6 +168,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
+              data-magnetic="0.3"
               className="head mt-6 inline-flex items-center gap-3 border border-[var(--color-line)] px-6 py-3 text-xs transition-colors hover:bg-[var(--color-elevated)]"
             >
               Get in Touch
