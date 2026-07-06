@@ -39,7 +39,7 @@ export function Gallery({ items }: { items: GalleryItem[] }) {
           <button
             key={item.src}
             onClick={() => setActive(i)}
-            className="holo-border card-hover group block w-full overflow-hidden text-left"
+            className="group block w-full overflow-hidden border border-[var(--color-line)] bg-[var(--color-panel)] text-left transition-colors hover:border-[var(--color-muted)]"
           >
             <div className="overflow-hidden rounded-[0.85rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}

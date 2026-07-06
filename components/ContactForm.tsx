@@ -42,23 +42,23 @@ export function ContactForm() {
   }
 
   const inputCls =
-    "w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-violet)]";
+    "w-full border border-[var(--color-line)] bg-[var(--color-panel)] px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--color-text)]";
 
   if (status === "success") {
     return (
-      <div className="holo-border p-8 text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-violet)] to-[var(--color-cyan)]">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
+      <div className="border border-[var(--color-line)] bg-[var(--color-panel)] p-8 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-line)]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="text-lg font-semibold">Message sent!</h3>
+        <h3 className="head text-lg">Message sent</h3>
         <p className="mt-2 text-sm text-[var(--color-muted)]">
           Thanks for reaching out — I&apos;ll get back to you soon.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-5 text-sm text-[var(--color-violet)] hover:underline"
+          className="arrow-link mt-5"
         >
           Send another
         </button>
@@ -67,7 +67,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="holo-border space-y-4 p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="space-y-4 border border-[var(--color-line)] bg-[var(--color-panel)] p-6 sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm text-[var(--color-muted)]">
@@ -104,7 +104,7 @@ export function ContactForm() {
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-[var(--color-pink)]">
+        <p className="text-sm text-red-400">
           {error}{" "}
           <a href={`mailto:${site.email}`} className="underline">
             Email me directly →
@@ -115,7 +115,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="btn-holo w-full rounded-full px-6 py-3 text-sm font-semibold text-white disabled:opacity-60"
+        className="head w-full bg-[var(--color-text)] px-6 py-3 text-sm text-[var(--color-bg)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {status === "sending" ? "Sending…" : "Send message"}
       </button>

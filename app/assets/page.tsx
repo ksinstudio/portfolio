@@ -9,20 +9,15 @@ export const metadata: Metadata = {
 
 export default function AssetsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pt-16">
-      <h1 className="text-4xl font-bold tracking-tight">
-        <span className="holo-text">Assets</span>
-      </h1>
-      <p className="mt-3 max-w-2xl text-[var(--color-muted)]">
-        Free and downloadable resources. Edit{" "}
-        <code className="rounded bg-[var(--color-surface-2)] px-1.5 py-0.5 text-sm">
-          data/assets.ts
-        </code>{" "}
-        to add files.
+    <div className="px-6 pt-16 sm:px-10 lg:px-14">
+      <p className="label">Downloads</p>
+      <h1 className="display mt-2 text-6xl sm:text-7xl">Assets</h1>
+      <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)]">
+        Free and downloadable resources — packs, kits, and files.
       </p>
 
       {assets.length > 0 ? (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {assets.map((asset) => (
             <AssetCard key={asset.slug} asset={asset} />
           ))}

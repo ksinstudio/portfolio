@@ -9,20 +9,14 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 pt-16">
-      <h1 className="text-4xl font-bold tracking-tight">
-        <span className="holo-text">Gallery</span>
-      </h1>
-      <p className="mt-3 max-w-2xl text-[var(--color-muted)]">
-        Click any piece to open it. Use ← → to browse, Esc to close. Add images
-        in{" "}
-        <code className="rounded bg-[var(--color-surface-2)] px-1.5 py-0.5 text-sm">
-          data/gallery.ts
-        </code>
-        .
+    <div className="px-6 pt-16 sm:px-10 lg:px-14">
+      <p className="label">Selected Visuals</p>
+      <h1 className="display mt-2 text-6xl sm:text-7xl">Gallery</h1>
+      <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)]">
+        Click any piece to open it. Use ← → to browse, Esc to close.
       </p>
 
-      <div className="mt-10">
+      <div className="mt-12">
         <Gallery items={gallery} />
       </div>
     </div>

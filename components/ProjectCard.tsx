@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -10,45 +9,36 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="holo-border card-hover group block overflow-hidden"
+      className="group relative block aspect-[4/3] overflow-hidden bg-[var(--color-panel)]"
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-2)]">
-        {project.cover ? (
-          <Image
-            src={project.cover}
-            alt={project.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-[var(--color-muted)]">
-            <span className="text-sm">No cover yet</span>
-          </div>
-        )}
-      </div>
-      <div className="p-5">
-        <div className="flex items-baseline justify-between gap-3">
-          <h3 className="font-medium">{project.title}</h3>
-          <span className="text-xs text-[var(--color-muted)]">
-            {project.year}
-          </span>
+      {project.cover ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={project.cover}
+          alt={project.title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center text-[var(--color-muted)]">
+          <span className="label">No cover yet</span>
         </div>
-        <p className="mt-2 text-sm text-[var(--color-muted)]">
-          {project.summary}
-        </p>
-        {project.tags.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-[var(--color-border)] px-2.5 py-0.5 text-xs text-[var(--color-muted)]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+      )}
+
+      {/* Gradient scrim */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+
+      {/* Label + title */}
+      <div className="absolute inset-x-0 bottom-0 p-5">
+        <p className="label mb-1 text-[0.6rem]">{project.category}</p>
+        <h3 className="head text-lg leading-tight">{project.title}</h3>
+      </div>
+
+      {/* Hover corner arrow */}
+      <div className="absolute right-4 top-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+          <path d="M7 17 17 7M7 7h10v10" />
+        </svg>
       </div>
     </Wrapper>
   );
