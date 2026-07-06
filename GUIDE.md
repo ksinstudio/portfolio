@@ -31,8 +31,9 @@ Everything about how your site works and how to update it. Written for you, Kevi
 ```
 portfolio/
 ├─ data/          ← YOU EDIT THESE. Your content lives here.
-│  ├─ site.ts        Name, role, email, social links
-│  ├─ projects.ts    Work / portfolio entries
+│  ├─ site.ts        Name, role, intro/about, quote, email, socials, images
+│  ├─ projects.ts    Work / portfolio entries (category + title)
+│  ├─ services.ts    "What I Do" services, clients, tools
 │  ├─ gallery.ts     Gallery images
 │  └─ assets.ts      Downloadable files
 ├─ public/        ← YOU DROP FILES HERE
@@ -90,38 +91,42 @@ All examples below are copy-paste-friendly. Keep the punctuation (commas, quotes
 ```ts
 export const site = {
   name: "Kevin Singleton",
-  role: "3D Artist · Technical Designer · AI Tooling",
-  tagline: "I build worlds, pipelines, and the tools in between…",
+  firstName: "Kevin",
+  lastName: "Singleton",
+  role: "3D Artist / Creative Director",
+  intro: "I create visuals that tell stories…",   // hero paragraph
+  about: "I'm Kevin Singleton — a 3D Artist…",     // About section paragraph
+  aboutHeadline: "Design with intent. Visuals that connect.",
+  quote: "Details create reality. Vision creates impact.",
   email: "ksinstudio@gmail.com",
   location: "Available worldwide · Remote",
+  heroImage: "/images/hero.svg",                   // big hero image
+  portrait: "/images/portrait.svg",                // About photo
   socials: {
-    instagram: "https://instagram.com/kevinxart",
     twitter: "https://twitter.com/ksin_art",
-    artstation: "",   // leave "" to hide a link
-    linkedin: "",
-    youtube: "",
-    github: "",
+    instagram: "https://instagram.com/kevinxart",
   },
 };
 ```
-To **add a social link**, paste the full URL between the quotes. To **hide one**, make it `""`.
+Replace `heroImage` and `portrait` by dropping real images in `public/images/` and pointing these at them (e.g. `/images/me.jpg`).
 
 ### 5b. Work / projects — `data/projects.ts`
 
-Each project is one block between `{ }`. To add one, copy an existing block and edit it:
+Each project is one block between `{ }`. The **category** shows as the small label above the title on the card. To add one, copy an existing block and edit it:
 
 ```ts
 {
   slug: "my-new-project",              // unique, lowercase, no spaces
   title: "My New Project",
+  category: "Product Visualization",   // small label on the card
   year: "2026",
-  tags: ["Unreal Engine 5", "Environment"],
-  summary: "One sentence describing it.",
   cover: "/images/my-project.png",     // put the image in public/images/  (or "" for none)
   href: "https://link-to-project.com", // optional external link (or "")
   featured: true,                      // true = also shows on the homepage
 },
 ```
+
+**Services, clients, tools** live in `data/services.ts` — edit those arrays the same way to change the "What I Do" list and the client/tool rows on the homepage.
 
 - **Order matters:** the order in the file is the order on the page.
 - **`featured: true`** puts it on the homepage (max 4 show there).
