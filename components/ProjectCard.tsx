@@ -1,14 +1,10 @@
+import Link from "next/link";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
-  const Wrapper = project.href ? "a" : "div";
-  const wrapperProps = project.href
-    ? { href: project.href, target: "_blank", rel: "noreferrer" }
-    : {};
-
   return (
-    <Wrapper
-      {...wrapperProps}
+    <Link
+      href={`/work/${project.slug}`}
       className="group relative block aspect-[4/3] overflow-hidden bg-[var(--color-panel)]"
     >
       {project.cover ? (
@@ -40,6 +36,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <path d="M7 17 17 7M7 7h10v10" />
         </svg>
       </div>
-    </Wrapper>
+    </Link>
   );
 }
