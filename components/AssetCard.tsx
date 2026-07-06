@@ -25,7 +25,7 @@ export function AssetCard({ asset }: { asset: Asset }) {
   const isExternal = asset.external ?? Boolean(asset.href && !asset.file);
 
   return (
-    <div className="card-hover flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+    <div className="holo-border card-hover flex flex-col p-5">
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-medium">{asset.title}</h3>
         {asset.format && (
@@ -61,7 +61,7 @@ export function AssetCard({ asset }: { asset: Asset }) {
           {...(isExternal
             ? { target: "_blank", rel: "noreferrer" }
             : { download: true })}
-          className="inline-flex items-center gap-2 rounded-md bg-[var(--color-accent)] px-3.5 py-1.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          className="btn-holo inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-white"
         >
           <DownloadIcon />
           Download

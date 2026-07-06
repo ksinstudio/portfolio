@@ -10,7 +10,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="card-hover group block overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]"
+      className="holo-border card-hover group block overflow-hidden"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-surface-2)]">
         {project.cover ? (

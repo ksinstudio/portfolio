@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 export default function AssetsPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 pt-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Assets</h1>
+      <h1 className="text-4xl font-bold tracking-tight">
+        <span className="holo-text">Assets</span>
+      </h1>
       <p className="mt-3 max-w-2xl text-[var(--color-muted)]">
         Free and downloadable resources. Edit{" "}
         <code className="rounded bg-[var(--color-surface-2)] px-1.5 py-0.5 text-sm">

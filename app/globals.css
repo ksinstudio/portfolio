@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
-/* Design tokens — tweak these to re-theme the whole site. */
+/* ------------------------------------------------------------------ */
+/*  Y2K-modern theme — holographic gradients, chrome, glow, animation  */
+/* ------------------------------------------------------------------ */
 @theme {
-  --color-bg: #0a0a0b;
-  --color-surface: #121214;
-  --color-surface-2: #1a1a1d;
-  --color-border: #26262b;
-  --color-text: #ededef;
-  --color-muted: #9a9aa3;
-  --color-accent: #6d6bff;
-  --color-accent-soft: #2a2960;
+  --color-bg: #060609;
+  --color-surface: #0e0e16;
+  --color-surface-2: #161622;
+  --color-border: #262636;
+  --color-text: #f2f2f7;
+  --color-muted: #9a9ab0;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  /* Y2K holographic accents */
+  --color-violet: #8b5cf6;
+  --color-pink: #ec4899;
+  --color-cyan: #22d3ee;
+  --color-lime: #a3e635;
+  --color-accent: #8b5cf6;
+
+  --font-sans: var(--font-space), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -24,22 +30,155 @@ body {
   color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* Subtle radial glow behind the hero. */
-.glow {
-  background:
-    radial-gradient(
-      600px circle at 50% 0%,
-      color-mix(in srgb, var(--color-accent) 18%, transparent),
-      transparent 70%
-    );
+/* ---- Holographic / chrome text ---- */
+.holo-text {
+  background: linear-gradient(
+    100deg,
+    var(--color-violet),
+    var(--color-pink),
+    var(--color-cyan),
+    var(--color-violet)
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: holo-shift 6s linear infinite;
 }
 
+.chrome-text {
+  background: linear-gradient(180deg, #ffffff 0%, #c8c8e0 45%, #6b6b8a 55%, #eaeaf5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Animated backdrop pieces ---- */
+.grid-bg {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-violet) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-violet) 12%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  animation: grid-pan 20s linear infinite;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+/* ---- Cards ---- */
 .card-hover {
-  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .card-hover:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-border));
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--color-violet) 60%, var(--color-border));
+  box-shadow: 0 10px 40px -12px color-mix(in srgb, var(--color-violet) 45%, transparent);
+}
+
+/* ---- Gradient border wrapper ---- */
+.holo-border {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 0.85rem;
+}
+.holo-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, var(--color-violet), var(--color-pink), var(--color-cyan));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+}
+.holo-border:hover::before {
+  opacity: 1;
+}
+
+/* ---- Buttons ---- */
+.btn-holo {
+  position: relative;
+  background: linear-gradient(120deg, var(--color-violet), var(--color-pink));
+  background-size: 200% 100%;
+  transition: background-position 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px -6px color-mix(in srgb, var(--color-pink) 60%, transparent);
+}
+.btn-holo:hover {
+  background-position: 100% 0;
+  box-shadow: 0 6px 30px -4px color-mix(in srgb, var(--color-violet) 70%, transparent);
+}
+
+/* ---- Marquee ---- */
+.marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+.marquee-wrap:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* ---- Reveal on load ---- */
+.reveal {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---- Keyframes ---- */
+@keyframes holo-shift {
+  to {
+    background-position: 300% 0;
+  }
+}
+@keyframes grid-pan {
+  to {
+    background-position: 44px 44px;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 40px) scale(1.15); }
+}
+
+.float-a { animation: float-a 14s ease-in-out infinite; }
+.float-b { animation: float-b 18s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
