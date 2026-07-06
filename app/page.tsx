@@ -30,29 +30,37 @@ export default function HomePage() {
       </div>
 
       {/* Hero */}
-      <section className="grid items-center gap-10 py-12 lg:grid-cols-[1fr_1.15fr] lg:py-16">
-        <div className="reveal">
-          <p className="label">{site.firstName}</p>
-          <h1 className="display mt-2 text-[19vw] leading-[0.82] sm:text-[13vw] lg:text-[9.5vw] xl:text-[130px]">
-            {site.lastName}
+      <section className="reveal relative -mx-6 overflow-hidden sm:-mx-10 lg:-mx-14">
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={site.heroImage}
+            alt=""
+            className="ken-burns h-full w-full object-cover"
+          />
+          {/* Scrims for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/80 to-[var(--color-bg)]/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/50" />
+        </div>
+
+        <div className="flex min-h-[78vh] flex-col justify-center px-6 py-20 sm:px-10 lg:px-14">
+          <h1 className="display leading-[0.84]">
+            <span className="block text-[24vw] sm:text-[17vw] lg:text-[12.5vw] xl:text-[185px]">
+              {site.firstName}
+            </span>
+            <span className="block text-[12.5vw] leading-[0.9] text-[var(--color-muted)] sm:text-[9vw] lg:text-[6.2vw] xl:text-[92px]">
+              {site.lastName}
+            </span>
           </h1>
-          <p className="label mt-4">{site.role}</p>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
+          <p className="label mt-6">{site.role}</p>
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-[var(--color-muted)]">
             {site.intro}
           </p>
           <Link href="#work" className="arrow-link mt-8">
             View Selected Work
             <ArrowRight />
           </Link>
-        </div>
-
-        <div className="reveal relative aspect-[4/3] overflow-hidden lg:aspect-[5/4]" style={{ animationDelay: "0.1s" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={site.heroImage}
-            alt="Featured render"
-            className="ken-burns h-full w-full object-cover"
-          />
         </div>
       </section>
 
