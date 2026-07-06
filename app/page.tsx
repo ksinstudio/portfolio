@@ -46,7 +46,7 @@ export default function HomePage() {
 
         <div className="flex min-h-[78vh] flex-col justify-center px-6 py-20 sm:px-10 lg:px-14">
           <h1 className="display leading-[0.84]">
-            <span className="block text-[24vw] sm:text-[17vw] lg:text-[12.5vw] xl:text-[185px]">
+            <span className="block text-[19vw] sm:text-[13.5vw] lg:text-[9.8vw] xl:text-[144px]">
               {site.firstName}
             </span>
             <span className="block text-[12.5vw] leading-[0.9] text-[var(--color-muted)] sm:text-[9vw] lg:text-[6.2vw] xl:text-[92px]">
