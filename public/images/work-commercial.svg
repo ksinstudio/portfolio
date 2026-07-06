@@ -6,8 +6,8 @@
       <stop offset="1" stop-color="#0a0a0c"/>
     </linearGradient>
     <radialGradient id="vig" cx="0.35" cy="0.3" r="0.85">
-      <stop offset="0" stop-color="#6a7a8a" stop-opacity="0.14"/>
-      <stop offset="1" stop-color="#6a7a8a" stop-opacity="0"/>
+      <stop offset="0" stop-color="#c9a25a" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#c9a25a" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="900" height="700" fill="url(#bg)"/>
@@ -18,5 +18,5 @@
     <line x1="300" y1="0" x2="300" y2="700"/>
     <line x1="600" y1="0" x2="600" y2="700"/>
   </g>
-  <text x="50%" y="50%" fill="#ffffff" fill-opacity="0.16" font-family="Arial Narrow, sans-serif" font-size="58" font-weight="800" letter-spacing="3" text-anchor="middle" dominant-baseline="middle">SALVAGE PROTOCOL</text>
+  <text x="50%" y="50%" fill="#ffffff" fill-opacity="0.16" font-family="Arial Narrow, sans-serif" font-size="58" font-weight="800" letter-spacing="3" text-anchor="middle" dominant-baseline="middle">COMMERCIAL</text>
 </svg>
