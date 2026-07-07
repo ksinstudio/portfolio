@@ -1,5 +1,5 @@
 // Gallery images. Drop files in /public/images and reference them here.
-// Large source art is fine — Next.js optimizes on the fly.
+// Large source art is fine — run big files through sharp first (see GUIDE.md).
 
 export type GalleryItem = {
   src: string;
@@ -12,39 +12,75 @@ export type GalleryItem = {
 
 export const gallery: GalleryItem[] = [
   {
-    src: "/images/sample-1.svg",
-    title: "Neon Study 01",
-    caption: "Replace with your art — edit data/gallery.ts",
-    shape: "landscape",
-  },
-  {
-    src: "/images/sample-2.svg",
-    title: "Chrome Sphere",
-    caption: "Placeholder render",
+    src: "/images/gallery-nova.jpg",
+    title: "Nova",
+    caption: "Cybercult — 3D character art",
     shape: "portrait",
   },
   {
-    src: "/images/sample-3.svg",
-    title: "Grid Horizon",
-    caption: "Placeholder render",
-    shape: "square",
-  },
-  {
-    src: "/images/sample-4.svg",
-    title: "Holo Bloom",
-    caption: "Placeholder render",
+    src: "/images/gallery-meza.jpg",
+    title: "Meza Retail Center",
+    caption: "Commercial exterior visualization",
     shape: "landscape",
   },
   {
-    src: "/images/sample-5.svg",
-    title: "Vapor Trail",
-    caption: "Placeholder render",
+    src: "/images/gallery-gummiez.jpg",
+    title: "BonBon Dual Gummiez",
+    caption: "Full flavor lineup — CGI product render",
+    shape: "square",
+  },
+  {
+    src: "/images/gallery-china.jpg",
+    title: "China Alley",
+    caption: "Apothecary interior visualization",
+    shape: "landscape",
+  },
+  {
+    src: "/images/ranz-2.jpg",
+    title: "RANZ — Fiber Study",
+    caption: "Procedural geometry-node fibers",
+    shape: "square",
+  },
+  {
+    src: "/images/gallery-void.jpg",
+    title: "Void",
+    caption: "Cybercult — graphic design",
     shape: "portrait",
   },
   {
-    src: "/images/sample-6.svg",
-    title: "Circuit Dawn",
-    caption: "Placeholder render",
+    src: "/images/gallery-bistro.jpg",
+    title: "Le Bistro",
+    caption: "Commercial exterior visualization",
+    shape: "landscape",
+  },
+  {
+    src: "/images/gallery-liquiddiamonds.jpg",
+    title: "BonBon Liquid Diamonds",
+    caption: "Product line render",
     shape: "square",
+  },
+  {
+    src: "/images/commercial-4.jpg",
+    title: "Townsend Brewing Company",
+    caption: "Commercial exterior visualization",
+    shape: "landscape",
+  },
+  {
+    src: "/images/pancake-2.jpg",
+    title: "The Pancake House",
+    caption: "Breakfast. Reimagined. — campaign key art",
+    shape: "square",
+  },
+  {
+    src: "/images/commercial-3.jpg",
+    title: "Stiiizy Executive Office",
+    caption: "Interior visualization",
+    shape: "landscape",
+  },
+  {
+    src: "/images/commercial-5.jpg",
+    title: "Herbarium Dispensary",
+    caption: "MO+RE Design Solutions — presentation board",
+    shape: "landscape",
   },
 ];
