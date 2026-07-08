@@ -5,6 +5,11 @@ import { site } from "@/data/site";
 
 type Status = "idle" | "sending" | "success" | "error";
 
+// Web3Forms public access key. Submissions post directly from the browser
+// (Web3Forms' free tier only allows client-side submits) and are emailed to the
+// address tied to this key. The key is public by design — it can only submit.
+const WEB3FORMS_ACCESS_KEY = "c06e24b4-03f8-44dc-9596-0e0489e37915";
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -15,25 +20,34 @@ export function ContactForm() {
     setError("");
 
     const form = e.currentTarget;
-    const payload = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
-    };
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
+      .value;
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New portfolio message from ${name}`,
+          from_name: "ksin.io contact form",
+          name,
+          email,
+          message,
+        }),
       });
       const body = await res.json().catch(() => ({}));
-      if (res.ok) {
+      if (res.ok && body.success) {
         setStatus("success");
         form.reset();
       } else {
         setStatus("error");
-        setError(body.error ?? "Something went wrong.");
+        setError(body.message ?? "Something went wrong.");
       }
     } catch {
       setStatus("error");
