@@ -15,10 +15,9 @@ export const site = {
   quote: "Details create reality. Vision creates impact.",
   email: "ksinstudio@gmail.com",
   location: "Available worldwide · Remote",
-  // Images live in /public/images. Replace the placeholders with your work.
-  heroImage: "/images/hero.svg",
-  portrait: "/images/portrait.svg",
-  ctaImage: "/images/statue.svg",
+  // Images live in /public/images.
+  heroImage: "/images/hero.jpg",
+  portrait: "/images/portrait.jpg",
   // Social links. Leave a value empty ("") to hide it.
   socials: {
     twitter: "https://twitter.com/ksin_art",
