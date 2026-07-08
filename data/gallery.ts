@@ -36,6 +36,12 @@ export const gallery: GalleryItem[] = [
     shape: "landscape",
   },
   {
+    src: "/images/gallery-integrate.jpg",
+    title: "Integrate",
+    caption: "Cybercult — glitch collage",
+    shape: "portrait",
+  },
+  {
     src: "/images/ranz-2.jpg",
     title: "RANZ — Fiber Study",
     caption: "Procedural geometry-node fibers",
@@ -60,6 +66,12 @@ export const gallery: GalleryItem[] = [
     shape: "square",
   },
   {
+    src: "/images/gallery-dominion.jpg",
+    title: "Dominion",
+    caption: "Cybercult — glitched engraving",
+    shape: "landscape",
+  },
+  {
     src: "/images/commercial-4.jpg",
     title: "Townsend Brewing Company",
     caption: "Commercial exterior visualization",
@@ -76,6 +88,12 @@ export const gallery: GalleryItem[] = [
     title: "Stiiizy Executive Office",
     caption: "Interior visualization",
     shape: "landscape",
+  },
+  {
+    src: "/images/gallery-fibers.jpg",
+    title: "Untitled",
+    caption: "Cybercult — fiber circuit study",
+    shape: "square",
   },
   {
     src: "/images/commercial-5.jpg",
